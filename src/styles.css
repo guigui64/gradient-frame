@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* sr-only from bootstrap */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* temporary or initial background ? */
+body {
+  background: linear-gradient(to right, rgb(0, 184, 255), rgb(0, 90, 255));
+}
