@@ -7,6 +7,7 @@ import { MainComponent } from './main/main.component';
 import { SigninComponent } from './signin/signin.component';
 import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ImageFormComponent } from './image-form/image-form.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     MainComponent,
     SigninComponent,
     RegisterComponent,
-    NavbarComponent
+    NavbarComponent,
+    ImageFormComponent
   ],
   imports: [
     BrowserModule,
