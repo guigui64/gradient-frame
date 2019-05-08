@@ -1,11 +1,10 @@
-<ul>
-  <li [class.active]="selected === 'main'">
-    <a routerLink="/">Gradient Frame <span *ngIf="selected === 'main'" class="sr-only">(current)</span></a>
-  </li>
-  <li class="right" [class.active]="selected === 'signin'">
-    <a routerLink="/signin">Sign In <span *ngIf="selected === 'signin'" class="sr-only">(current)</span></a>
-  </li>
-  <li class="right" [class.active]="selected === 'register'">
-    <a routerLink="/register">Register <span *ngIf="selected === 'register'" class="sr-only">(current)</span></a>
-  </li>
-</ul>
+<nav>
+  <a [class.active]="selected === 'main'" routerLink="/">Gradient Frame <span *ngIf="selected === 'main'"
+      class="sr-only">(current)</span></a>
+  <div class="navbar-right">
+    <a [class.active]="selected === 'signin'" routerLink="/signin">Sign In <span *ngIf="selected === 'signin'"
+        class="sr-only">(current)</span></a>
+    <a [class.active]="selected === 'register'" routerLink="/register">Register <span *ngIf="selected === 'register'"
+        class="sr-only">(current)</span></a>
+  </div>
+</nav>

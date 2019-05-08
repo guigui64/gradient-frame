@@ -15,4 +15,6 @@
 /* temporary or initial background ? */
 body {
   background: linear-gradient(to right, rgb(0, 184, 255), rgb(0, 90, 255));
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
 }
