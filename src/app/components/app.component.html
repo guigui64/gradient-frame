@@ -1,11 +1,14 @@
-<header>
-  <app-navbar></app-navbar>
-</header>
+<div id="app-container" [ngStyle]="containerStyles">
+  <header>
+    <app-navbar></app-navbar>
+  </header>
 
-<main>
-  <router-outlet></router-outlet>
-</main>
+  <main>
+    <router-outlet></router-outlet>
+    <button (click)="inverseAll()">Inverse</button>
+  </main>
 
-<footer>
-  <p style="text-align: center;">TODO footer</p>
-</footer>
+  <footer>
+    <p>TODO footer</p>
+  </footer>
+</div>
