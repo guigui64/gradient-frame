@@ -5,10 +5,12 @@
 
   <main>
     <router-outlet></router-outlet>
+    <p>Debug buttons :</p>
     <button (click)="inverseAll()">Inverse</button>
+    <button (click)="fullBlack()">Black</button>
+    <button (click)="fullWhite()">White</button>
+    <button (click)="blackAndWhite()">B&W</button>
   </main>
 
-  <footer>
-    <p>TODO footer</p>
-  </footer>
+  <app-footer></app-footer>
 </div>

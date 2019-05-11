@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-register',
   template: `
     <p>
-      register works!
+      TODO register
     </p>
   `,
   styles: []

@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-signin',
   template: `
     <p>
-      signin works!
+      TODO signin
     </p>
   `,
   styles: []

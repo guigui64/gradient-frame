@@ -37,6 +37,13 @@ export function inverseColor(color: Color): Color {
   return new Color(255 - color.red, 255 - color.green, 255 - color.blue);
 }
 
+export function luminanceFrom(color: Color): number {
+  return (.299 * color.red + .587 * color.green + .114 * color.blue) / 255.;
+}
+
+export const BLACK = new Color(0, 0, 0);
+export const WHITE = new Color(255, 255, 255);
+
 /**
  * Returns a Color
  * @param hexa a string with format '#rrggbb'
