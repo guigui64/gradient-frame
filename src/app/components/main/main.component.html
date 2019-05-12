@@ -1,2 +1,2 @@
-<app-image-form></app-image-form>
+<app-image-form (imageUrlEntered)="imageUrlEntered($event)"></app-image-form>
 <img *ngIf="imageUrl" [src]="imageUrl" />

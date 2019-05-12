@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-image-form',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ImageFormComponent implements OnInit {
 
+  imageUrl = '';
+  @Output() imageUrlEntered = new EventEmitter<string>();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  frame(): void {
+    this.imageUrlEntered.emit(this.imageUrl);
   }
 
 }

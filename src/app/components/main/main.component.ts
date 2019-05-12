@@ -6,12 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  imageUrl = "";
-  // imageUrl = "https://clarifai.com/cms-assets/20180320213202/color-001.jpg";
+  imageUrl = '';
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  imageUrlEntered(url: string) {
+    this.imageUrl = url;
+    // TODO clarifai colors + service
   }
 
 }

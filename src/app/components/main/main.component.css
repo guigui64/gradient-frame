@@ -1,0 +1,9 @@
+img {
+  width: 500px;
+  height: auto;
+  display: block;
+  margin: 20px auto auto auto;
+}
+
+/* TODO img bigger, reactive size */
+/* TODO flex for img to be centered on screen */
