@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Color, inverseColor, meanColor, luminanceFrom, WHITE, BLACK } from '../utilities/colors';
+import { Color, inverseColor, meanColor, luminanceFrom, WHITE, BLACK } from './utilities/colors';
 
 @Component({
   selector: 'app-root',
