@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Color, inverseColor, meanColor, luminanceFrom, WHITE, BLACK } from './utilities/colors';
+import { Color, inverseColor, meanColor, luminanceFrom, WHITE, BLACK, DEFAULT_COLOR_1, DEFAULT_COLOR_2 } from './utilities/colors';
+import { ColorsService } from './colors.service';
 
 @Component({
   selector: 'app-root',
@@ -7,26 +8,29 @@ import { Color, inverseColor, meanColor, luminanceFrom, WHITE, BLACK } from './u
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+
+  constructor(private colorsService: ColorsService) {
+  }
   title = 'gradient-frame';
 
-  color1: Color = new Color(0, 184, 255);
-  color2: Color = new Color(0, 90, 255);
+  color1 = DEFAULT_COLOR_1;
+  color2 = DEFAULT_COLOR_2;
 
-  constructor() {
-  }
-
+  containerStyles = { // TODO use css variables
+    background: '',
+    color: '',
+  };
   ngOnInit(): void {
+    this.colorsService.colors$.subscribe((colors: Color[]) => {
+      [this.color1, this.color2] = colors;
+      this.updateStyles();
+    });
     this.updateStyles();
   }
 
   updateStyles(): void {
     this.containerStyles.background = `linear-gradient(to right, ${this.color1.toRGBAString()}, ${this.color2.toRGBAString()})`;
     this.containerStyles.color = luminanceFrom(meanColor(this.color1, this.color2)) > .5 ? 'black' : 'white';
-  }
-
-  containerStyles = { // TODO use css variables
-    background: "",
-    color: "",
   }
 
   inverseAll() {

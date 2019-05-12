@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GradientFrameApiService } from '../gradient-frame-api.service';
+import { ColorsService } from '../colors.service';
 
 @Component({
   selector: 'app-main',
@@ -8,14 +10,15 @@ import { Component, OnInit } from '@angular/core';
 export class MainComponent implements OnInit {
   imageUrl = '';
 
-  constructor() { }
+  constructor(private apiService: GradientFrameApiService, private colorsService: ColorsService) { }
 
   ngOnInit() {
   }
 
   imageUrlEntered(url: string) {
-    this.imageUrl = url;
-    // TODO clarifai colors + service
+    if (!url) { return; }
+    this.imageUrl = url; // needed to display the image
+    this.colorsService.updateColors(this.apiService.getColors(url));
   }
 
 }

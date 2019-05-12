@@ -1,7 +1,7 @@
 export class Color {
-  private _red: number = 0;
-  private _green: number = 0;
-  private _blue: number = 0;
+  private _red = 0;
+  private _green = 0;
+  private _blue = 0;
 
   constructor(red: number = 0, green: number = 0, blue: number = 0) {
     this._red = red;
@@ -43,6 +43,9 @@ export function luminanceFrom(color: Color): number {
 
 export const BLACK = new Color(0, 0, 0);
 export const WHITE = new Color(255, 255, 255);
+
+export const DEFAULT_COLOR_1 = new Color(226, 0, 255);
+export const DEFAULT_COLOR_2 = new Color(0, 243, 255);
 
 /**
  * Returns a Color
