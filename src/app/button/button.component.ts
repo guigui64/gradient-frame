@@ -2,13 +2,18 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Unsubscribable } from 'rxjs';
 import { ColorsService } from '../colors.service';
 import { DEFAULT_COLOR_1, DEFAULT_COLOR_2, Color, luminanceFrom, meanColor, BLACK, inverseColor } from '../utilities/colors';
-import { StylesCompileDependency } from '@angular/compiler';
+import { faFill, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-button',
-  template: `
-  <button (mouseenter)="hover=true" (mouseleave)="hover=false" [ngStyle]="hover ? hoverStyles : styles">{{text}}</button>
-  `,
+  template: `<button (mouseenter)="hover=true" (mouseleave)="hover=false" [ngStyle]="hover ? hoverStyles : styles">
+              <ng-container [ngSwitch]="faIcon">
+              <fa-icon *ngSwitchCase="'faFill'" [icon]="faFill" size="lg"></fa-icon>
+              <fa-icon *ngSwitchCase="'faArrowUp'" [icon]="faArrowUp" size="lg"></fa-icon>
+              </ng-container>
+              {{text}}
+            </button>
+            `,
   styles: [
     `button {
       padding: 10px;
@@ -27,6 +32,10 @@ import { StylesCompileDependency } from '@angular/compiler';
 export class ButtonComponent implements OnInit {
 
   @Input() text: string;
+  @Input() faIcon: string;
+
+  faFill = faFill;
+  faArrowUp = faArrowUp;
 
   private _subscription: Unsubscribable;
 

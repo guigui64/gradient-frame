@@ -21,8 +21,4 @@ export class MainComponent implements OnInit {
     this.apiService.getColors(url).subscribe(colors => this.colorsService.updateColors(colors));
   }
 
-  inverse(): void {
-    this.colorsService.inverseColors();
-  }
-
 }

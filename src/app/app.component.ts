@@ -16,7 +16,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
   title = 'gradient-frame';
 
-  containerStyles = { // TODO: use css variables
+  containerStyles = {
     background: '',
     color: '',
   };

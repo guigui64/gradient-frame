@@ -15,6 +15,7 @@ import { ImageFormComponent } from './image-form/image-form.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavitemComponent } from './navitem/navitem.component';
 import { ButtonComponent } from './button/button.component';
+import { ControlPanelComponent } from './control-panel/control-panel.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ButtonComponent } from './button/button.component';
     ImageFormComponent,
     FooterComponent,
     NavitemComponent,
-    ButtonComponent
+    ButtonComponent,
+    ControlPanelComponent
   ],
   imports: [
     BrowserModule,
