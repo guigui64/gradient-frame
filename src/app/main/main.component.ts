@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GradientFrameApiService } from '../gradient-frame-api.service';
+import { ApiService } from '../api.service';
 import { ColorsService } from '../colors.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { ColorsService } from '../colors.service';
 export class MainComponent implements OnInit {
   imageUrl = '';
 
-  constructor(private apiService: GradientFrameApiService, private colorsService: ColorsService) { }
+  constructor(private apiService: ApiService, private colorsService: ColorsService) { }
 
   ngOnInit() {
   }
@@ -18,7 +18,11 @@ export class MainComponent implements OnInit {
   imageUrlEntered(url: string) {
     if (!url) { return; }
     this.imageUrl = url; // needed to display the image
-    this.colorsService.updateColors(this.apiService.getColors(url));
+    this.apiService.getColors(url).subscribe(colors => this.colorsService.updateColors(colors));
+  }
+
+  inverse(): void {
+    this.colorsService.inverseColors();
   }
 
 }

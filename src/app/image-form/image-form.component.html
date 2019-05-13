@@ -3,5 +3,5 @@
     This Magical Frame will change with the colors of your picture. Give it a try.
   </p>
   <input type="text" placeholder="URL of your picture" [(ngModel)]="imageUrl" (keyup.enter)="frame()" />
-  <button (click)="frame()">Frame</button>
+  <app-button text="Frame" (click)="frame()"></app-button>
 </div>

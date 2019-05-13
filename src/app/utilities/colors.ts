@@ -26,11 +26,12 @@ export class Color {
   }
 }
 
-export function meanColor(color1: Color, color2: Color): Color {
+export function meanColor(colors: Color[]): Color {
+  const len = colors.length;
   return new Color(
-    (color1.red + color2.red) / 2,
-    (color1.green + color2.green) / 2,
-    (color1.blue + color2.blue) / 2);
+    colors.reduce((a, c) => a + c.red, 0) / len,
+    colors.reduce((a, c) => a + c.green, 0) / len,
+    colors.reduce((a, c) => a + c.blue, 0) / len);
 }
 
 export function inverseColor(color: Color): Color {

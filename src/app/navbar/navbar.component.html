@@ -1,10 +1,7 @@
-<nav>
-  <a [class.active]="selected === 'main'" routerLink="/">Gradient Frame <span *ngIf="selected === 'main'"
-      class="sr-only">(current)</span></a>
+<nav [ngStyle]="navStyles">
+  <app-navitem text="GradientFrame" routerLink="/" selected="selected === 'main'"></app-navitem>
   <div class="navbar-right">
-    <a [class.active]="selected === 'signin'" routerLink="/signin">Sign In <span *ngIf="selected === 'signin'"
-        class="sr-only">(current)</span></a>
-    <a [class.active]="selected === 'register'" routerLink="/register">Register <span *ngIf="selected === 'register'"
-        class="sr-only">(current)</span></a>
+    <app-navitem text="Sign In" routerLink="/signin" selected="selected === 'signin'"></app-navitem>
+    <app-navitem text="Register" routerLink="/register" selected="selected === 'register'"></app-navitem>
   </div>
 </nav>

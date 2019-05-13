@@ -11,6 +11,8 @@ import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ImageFormComponent } from './image-form/image-form.component';
 import { FooterComponent } from './footer/footer.component';
+import { NavitemComponent } from './navitem/navitem.component';
+import { ButtonComponent } from './button/button.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { FooterComponent } from './footer/footer.component';
     RegisterComponent,
     NavbarComponent,
     ImageFormComponent,
-    FooterComponent
+    FooterComponent,
+    NavitemComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,
