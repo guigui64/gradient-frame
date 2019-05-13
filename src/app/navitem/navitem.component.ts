@@ -12,6 +12,7 @@ import { Unsubscribable } from 'rxjs';
               padding: 14px 16px;
               text-decoration: none;
               cursor: pointer;
+              color: inherit;
             }`]
 })
 export class NavitemComponent implements OnInit, OnDestroy {
@@ -21,7 +22,6 @@ export class NavitemComponent implements OnInit, OnDestroy {
   hover = false;
 
   style = {
-    color: BLACK.toRGBAString(),
   };
 
   hoverStyle = {
@@ -46,7 +46,7 @@ export class NavitemComponent implements OnInit, OnDestroy {
   }
 
   updateStyles(isDark: boolean): void {
-    this.style.color = `${(isDark ? WHITE : BLACK).toRGBAString()}`;
+    this.hoverStyle["background-color"] = `${(isDark ? BLACK : WHITE).toRGBAString(.5)}`;
   }
 
 }

@@ -3,5 +3,4 @@
 - TODO: center image
 - TODO: save favourites
 - TODO: tweak buttons with inverse, to-right, to-left, to-top, to-bottom, circular etc.
-- TODO: clarifai in footer
 - TODO: logo
