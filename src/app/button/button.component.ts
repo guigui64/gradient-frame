@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Unsubscribable } from 'rxjs';
 import { ColorsService } from '../colors.service';
-import { DEFAULT_COLOR_1, DEFAULT_COLOR_2, Color, luminanceFrom, meanColor, BLACK, inverseColor } from '../utilities/colors';
+import { DEFAULT_COLOR_1, DEFAULT_COLOR_2, Color, luminanceFrom, meanColor } from '../utilities/colors';
 import { faFill, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -22,7 +22,7 @@ import { faFill, faArrowUp } from '@fortawesome/free-solid-svg-icons';
     }`,
     `button:hover,
     button:focus {
-      background-color: ${BLACK.toRGBAString(.5)};
+      background-color: rgba(0, 0, 0, .5);
     }`,
     `button:active {
       transform: scale(0.9);
