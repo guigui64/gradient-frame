@@ -4,6 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "predev": "xterm -title 'gradient-frame-api' -e /bin/bash -l -c 'cd ../gradient-frame-api/ && npm start' &",
+    "dev": "npm start",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
