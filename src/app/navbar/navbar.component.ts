@@ -13,7 +13,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   navStyles = {
     "box-shadow": `0 3px 5px ${BLACK.toRGBAString(.3)}`,
-    "background-color": `${WHITE.toRGBAString(.5)}`,
   };
 
   private _subscription: Unsubscribable;
@@ -26,6 +25,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
         this.updateStyles(luminanceFrom(meanColor(colors)) < .5);
       },
       (error) => console.error('Impossible to subscribe to colors service', error));
+    this.updateStyles(luminanceFrom(meanColor(this.colorsService.getColors())) < .5);
   }
 
   ngOnDestroy(): void {

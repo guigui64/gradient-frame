@@ -45,8 +45,20 @@ export function luminanceFrom(color: Color): number {
 export const BLACK = new Color(0, 0, 0);
 export const WHITE = new Color(255, 255, 255);
 
-export const DEFAULT_COLOR_1 = new Color(226, 0, 255);
-export const DEFAULT_COLOR_2 = new Color(0, 243, 255);
+const themes = [
+  [parseHexa('#00b09b'), parseHexa('#96c93d')], // OHHAPPINESS
+  [parseHexa('#fc5c7d'), parseHexa('#6a82fb')], // SUBLIME LIGHT
+  [parseHexa('#b92b27'), parseHexa('#1565c0')], // EVENING SUNSHINE
+  [parseHexa('#8360c3'), parseHexa('#2ebf91')], // KYE MEH
+  [parseHexa('#00f260'), parseHexa('#0575e6')], // RAINBOW BLUE
+  [parseHexa('#fc466b'), parseHexa('#3f5efb')], // SUBLIME VIVID
+  [new Color(247, 200, 109), new Color(63, 77, 130)], // SUN SET
+  [new Color(118, 75, 162), new Color(102, 126, 234)], // PLUM PLATE
+  [new Color(192, 0, 255), new Color(0, 161, 255)], // FLASHY
+];
+
+export const DEFAULT_COLOR_1 = themes[0][0];
+export const DEFAULT_COLOR_2 = themes[0][1];
 
 /**
  * Returns a Color

@@ -23,7 +23,6 @@ export class FooterComponent implements OnInit {
 
   footerStyles = {
     "box-shadow": `3px 0 5px ${BLACK.toRGBAString(.3)}`,
-    "background-color": `${WHITE.toRGBAString(.5)}`,
   };
 
   private _subscription: Unsubscribable;
@@ -36,6 +35,7 @@ export class FooterComponent implements OnInit {
         this.updateStyles(luminanceFrom(meanColor(colors)) < .5);
       },
       (error) => console.error('Impossible to subscribe to colors service', error));
+    this.updateStyles(luminanceFrom(meanColor(this.colorsService.getColors())) < .5);
   }
 
   ngOnDestroy(): void {

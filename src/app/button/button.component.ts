@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Unsubscribable } from 'rxjs';
 import { ColorsService } from '../colors.service';
-import { DEFAULT_COLOR_1, DEFAULT_COLOR_2, Color, luminanceFrom, meanColor } from '../utilities/colors';
+import { Color, luminanceFrom, meanColor } from '../utilities/colors';
 import { faFill, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -59,7 +59,7 @@ export class ButtonComponent implements OnInit {
         this.updateStyles(colors);
       },
       (error) => console.error('Impossible to subscribe to colors service', error));
-    this.updateStyles([DEFAULT_COLOR_1, DEFAULT_COLOR_2]);
+    this.updateStyles(this.colorsService.getColors());
   }
 
   ngOnDestroy(): void {

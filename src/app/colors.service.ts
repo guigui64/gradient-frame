@@ -30,4 +30,8 @@ export class ColorsService {
     this.colors = this.colors.map(color => inverseColor(color));
     this.updateSubject();
   }
+
+  getColors(): Color[] {
+    return this.colors;
+  }
 }
