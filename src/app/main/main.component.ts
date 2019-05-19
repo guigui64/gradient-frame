@@ -8,7 +8,7 @@ import { ColorsService } from '../colors.service';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  imageUrl = '';
+  imageUrl = 'assets/logo.png';
 
   constructor(private apiService: ApiService, private colorsService: ColorsService) { }
 

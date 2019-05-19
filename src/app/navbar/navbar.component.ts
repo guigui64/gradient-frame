@@ -12,7 +12,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
   selected: string = 'main'; // TODO: set according to route
 
   navStyles = {
-    "box-shadow": `0 3px 5px ${BLACK.toRGBAString(.3)}`,
   };
 
   private _subscription: Unsubscribable;

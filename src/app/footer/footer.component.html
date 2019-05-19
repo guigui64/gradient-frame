@@ -1,24 +1,11 @@
 <footer [ngStyle]="footerStyles">
   <p>
     Made by Guillaume Comte<span>&bull;</span>
-    <a href="https://guigui64.github.com/">
-      <fa-icon [icon]="faHome" size="lg"></fa-icon>
-    </a>
-    <a href="https://github.com/guigui64">
-      <fa-icon [icon]="faGithub" size="lg"></fa-icon>
-    </a>
-    <a href="https://www.twitter.com/guillaumecomte">
-      <fa-icon [icon]="faTwitter" size="lg"></fa-icon>
-    </a>
-    <a href="https://www.linkedin.com/in/guillaumecomtep/">
-      <fa-icon [icon]="faLinkedin" size="lg"></fa-icon>
-    </a>
-    <a href="https://www.facebook.com/guillaume.comtep">
-      <fa-icon [icon]="faFacebook" size="lg"></fa-icon>
-    </a>
-    <a href="mailto:guillaume.comte10@gmail.com">
-      <fa-icon [icon]="faEnvelope" size="lg"></fa-icon>
-    </a>
+    <ng-container *ngFor="let link of links">
+      <a href="link.url">
+        <fa-icon [icon]="link.icon" size=lg></fa-icon>
+      </a>
+    </ng-container>
     <span>&bull;</span>
     <span>Artificial Intelligence by <a style="padding: 0; text-decoration: underline"
         href="https://www.clarifai.com">Clarifai</a></span>

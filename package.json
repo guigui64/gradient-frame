@@ -10,7 +10,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "predeploy": "ng build --prod --base-href 'https://guigui64.github.io/gradient-frame/'",
+    "predeploy": "ng build --prod --base-href 'https://guigui64.github.io/gradient-frame/' && cp dist/gradient-frame/index.html dist/gradient-frame/404.html",
     "deploy": "gh-pages -d dist/gradient-frame/"
   },
   "private": true,
