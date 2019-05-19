@@ -2,7 +2,7 @@
   <p>
     Made by Guillaume Comte<span>&bull;</span>
     <ng-container *ngFor="let link of links">
-      <a href="link.url">
+      <a [href]="link.url">
         <fa-icon [icon]="link.icon" size=lg></fa-icon>
       </a>
     </ng-container>
