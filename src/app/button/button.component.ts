@@ -6,31 +6,45 @@ import { faFill, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-button',
-  template: `<button (mouseenter)="hover=true" (mouseleave)="hover=false" [ngStyle]="hover ? hoverStyles : styles">
-              <ng-container [ngSwitch]="faIcon">
-              <fa-icon *ngSwitchCase="'faFill'" [icon]="faFill" size="lg"></fa-icon>
-              <fa-icon *ngSwitchCase="'faArrowUp'" [icon]="faArrowUp" size="lg"></fa-icon>
-              </ng-container>
-              {{text}}
-            </button>
-            `,
+  template: `
+    <button
+      (mouseenter)="hover = true"
+      (mouseleave)="hover = false"
+      [ngStyle]="hover ? hoverStyles : styles"
+    >
+      <ng-container [ngSwitch]="faIcon">
+        <fa-icon *ngSwitchCase="'faFill'" [icon]="faFill" size="lg"></fa-icon>
+        <fa-icon
+          *ngSwitchCase="'faArrowUp'"
+          [icon]="faArrowUp"
+          size="lg"
+        ></fa-icon>
+      </ng-container>
+      {{ text }}
+    </button>
+  `,
   styles: [
-    `button {
-      padding: 10px;
-      border: 0;
-      cursor: pointer;
-    }`,
-    `button:hover,
-    button:focus {
-      background-color: rgba(0, 0, 0, .5);
-    }`,
-    `button:active {
-      transform: scale(0.9);
-    }`
+    `
+      button {
+        padding: 10px;
+        border: 0;
+        cursor: pointer;
+      }
+    `,
+    `
+      button:hover,
+      button:focus {
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+    `,
+    `
+      button:active {
+        transform: scale(0.9);
+      }
+    `
   ]
 })
 export class ButtonComponent implements OnInit {
-
   @Input() text: string;
   @Input() faIcon: string;
 
@@ -39,26 +53,26 @@ export class ButtonComponent implements OnInit {
 
   private _subscription: Unsubscribable;
 
-  constructor(private colorsService: ColorsService) {
-  }
+  constructor(private colorsService: ColorsService) {}
 
   hover = false;
 
   styles = {
     background: '',
-    color: '',
+    color: ''
   };
 
   hoverStyles = {
-    ...this.styles,
-  }
+    ...this.styles
+  };
 
   ngOnInit(): void {
     this._subscription = this.colorsService.colors$.subscribe(
       (colors: Color[]) => {
         this.updateStyles(colors);
       },
-      (error) => console.error('Impossible to subscribe to colors service', error));
+      error => console.error('Impossible to subscribe to colors service', error)
+    );
     this.updateStyles(this.colorsService.getColors());
   }
 
@@ -68,21 +82,20 @@ export class ButtonComponent implements OnInit {
 
   updateStyles(colors: Color[]): void {
     this.styles.background = `linear-gradient(to right, ${colors[0].toRGBAString()}, ${colors[1].toRGBAString()})`;
-    const isLight = luminanceFrom(meanColor(colors)) > .5;
+    const isLight = luminanceFrom(meanColor(colors)) > 0.5;
     this.styles.color = isLight ? 'black' : 'white';
     const offset = isLight ? +100 : -100;
     const hoverColor1 = new Color(
       colors[0].red + offset,
       colors[0].green + offset,
-      colors[0].blue + offset,
+      colors[0].blue + offset
     );
     const hoverColor2 = new Color(
       colors[1].red + offset,
       colors[1].green + offset,
-      colors[1].blue + offset,
+      colors[1].blue + offset
     );
     this.hoverStyles.background = `linear-gradient(to right, ${hoverColor1.toRGBAString()}, ${hoverColor2.toRGBAString()})`;
     this.hoverStyles.color = this.styles.color;
   }
-
 }

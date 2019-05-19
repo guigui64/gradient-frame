@@ -6,17 +6,14 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./image-form.component.css']
 })
 export class ImageFormComponent implements OnInit {
-
   imageUrl = '';
   @Output() imageUrlEntered = new EventEmitter<string>();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   frame(): void {
     this.imageUrlEntered.emit(this.imageUrl);
   }
-
 }

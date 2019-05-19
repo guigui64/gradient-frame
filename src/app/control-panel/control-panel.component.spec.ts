@@ -8,9 +8,8 @@ describe('ControlPanelComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ControlPanelComponent ]
-    })
-    .compileComponents();
+      declarations: [ControlPanelComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

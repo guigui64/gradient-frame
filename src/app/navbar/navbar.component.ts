@@ -1,5 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { BLACK, WHITE, Color, luminanceFrom, meanColor } from '../utilities/colors';
+import {
+  BLACK,
+  WHITE,
+  Color,
+  luminanceFrom,
+  meanColor
+} from '../utilities/colors';
 import { ColorsService } from '../colors.service';
 import { Unsubscribable } from 'rxjs';
 
@@ -11,20 +17,22 @@ import { Unsubscribable } from 'rxjs';
 export class NavbarComponent implements OnInit, OnDestroy {
   selected: string = 'main'; // TODO: set according to route
 
-  navStyles = {
-  };
+  navStyles = {};
 
   private _subscription: Unsubscribable;
 
-  constructor(private colorsService: ColorsService) { }
+  constructor(private colorsService: ColorsService) {}
 
   ngOnInit() {
     this._subscription = this.colorsService.colors$.subscribe(
       (colors: Color[]) => {
-        this.updateStyles(luminanceFrom(meanColor(colors)) < .5);
+        this.updateStyles(luminanceFrom(meanColor(colors)) < 0.5);
       },
-      (error) => console.error('Impossible to subscribe to colors service', error));
-    this.updateStyles(luminanceFrom(meanColor(this.colorsService.getColors())) < .5);
+      error => console.error('Impossible to subscribe to colors service', error)
+    );
+    this.updateStyles(
+      luminanceFrom(meanColor(this.colorsService.getColors())) < 0.5
+    );
   }
 
   ngOnDestroy(): void {
@@ -32,7 +40,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   updateStyles(isDark: boolean): void {
-    this.navStyles["background-color"] = `${(isDark ? BLACK : WHITE).toRGBAString(.5)}`;
+    this.navStyles['background-color'] = `${(isDark
+      ? BLACK
+      : WHITE
+    ).toRGBAString(0.5)}`;
   }
-
 }

@@ -1,10 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Unsubscribable } from 'rxjs';
 
-import { faGithub, faTwitter, faLinkedin, faFacebook } from '@fortawesome/free-brands-svg-icons';
+import {
+  faGithub,
+  faTwitter,
+  faLinkedin,
+  faFacebook
+} from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faGlobe } from '@fortawesome/free-solid-svg-icons';
 
-import { BLACK, WHITE, Color, luminanceFrom, meanColor } from '../utilities/colors';
+import {
+  BLACK,
+  WHITE,
+  Color,
+  luminanceFrom,
+  meanColor
+} from '../utilities/colors';
 import { ColorsService } from '../colors.service';
 
 @Component({
@@ -13,7 +24,6 @@ import { ColorsService } from '../colors.service';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-
   links = [
     {
       url: 'https://guigui64.github.com/',
@@ -38,23 +48,25 @@ export class FooterComponent implements OnInit {
     {
       url: 'mailto:guillaume.comte10@gmail.com',
       icon: faEnvelope
-    },
+    }
   ];
 
-  footerStyles = {
-  };
+  footerStyles = {};
 
   private _subscription: Unsubscribable;
 
-  constructor(private colorsService: ColorsService) { }
+  constructor(private colorsService: ColorsService) {}
 
   ngOnInit() {
     this._subscription = this.colorsService.colors$.subscribe(
       (colors: Color[]) => {
-        this.updateStyles(luminanceFrom(meanColor(colors)) < .5);
+        this.updateStyles(luminanceFrom(meanColor(colors)) < 0.5);
       },
-      (error) => console.error('Impossible to subscribe to colors service', error));
-    this.updateStyles(luminanceFrom(meanColor(this.colorsService.getColors())) < .5);
+      error => console.error('Impossible to subscribe to colors service', error)
+    );
+    this.updateStyles(
+      luminanceFrom(meanColor(this.colorsService.getColors())) < 0.5
+    );
   }
 
   ngOnDestroy(): void {
@@ -62,7 +74,9 @@ export class FooterComponent implements OnInit {
   }
 
   updateStyles(isDark: boolean): void {
-    this.footerStyles["background-color"] = `${(isDark ? BLACK : WHITE).toRGBAString(.5)}`;
+    this.footerStyles['background-color'] = `${(isDark
+      ? BLACK
+      : WHITE
+    ).toRGBAString(0.5)}`;
   }
-
 }

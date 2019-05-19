@@ -31,7 +31,8 @@ export function meanColor(colors: Color[]): Color {
   return new Color(
     colors.reduce((a, c) => a + c.red, 0) / len,
     colors.reduce((a, c) => a + c.green, 0) / len,
-    colors.reduce((a, c) => a + c.blue, 0) / len);
+    colors.reduce((a, c) => a + c.blue, 0) / len
+  );
 }
 
 export function inverseColor(color: Color): Color {
@@ -39,7 +40,7 @@ export function inverseColor(color: Color): Color {
 }
 
 export function luminanceFrom(color: Color): number {
-  return (.299 * color.red + .587 * color.green + .114 * color.blue) / 255.;
+  return (0.299 * color.red + 0.587 * color.green + 0.114 * color.blue) / 255;
 }
 
 export const BLACK = new Color(0, 0, 0);
@@ -54,7 +55,7 @@ const themes = [
   [parseHexa('#fc466b'), parseHexa('#3f5efb')], // SUBLIME VIVID
   [new Color(247, 200, 109), new Color(63, 77, 130)], // SUN SET
   [new Color(118, 75, 162), new Color(102, 126, 234)], // PLUM PLATE
-  [new Color(192, 0, 255), new Color(0, 161, 255)], // FLASHY
+  [new Color(192, 0, 255), new Color(0, 161, 255)] // FLASHY
 ];
 
 export const DEFAULT_COLOR_1 = themes[0][0];
@@ -71,5 +72,6 @@ export function parseHexa(hexa: string): Color {
   return new Color(
     parseInt(hred, 16),
     parseInt(hgreen, 16),
-    parseInt(hblue, 16));
+    parseInt(hblue, 16)
+  );
 }

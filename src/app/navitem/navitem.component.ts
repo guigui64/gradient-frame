@@ -1,19 +1,36 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { BLACK, WHITE, Color, luminanceFrom, meanColor } from '../utilities/colors';
+import {
+  BLACK,
+  WHITE,
+  Color,
+  luminanceFrom,
+  meanColor
+} from '../utilities/colors';
 import { ColorsService } from '../colors.service';
 import { Unsubscribable } from 'rxjs';
 
 @Component({
   selector: 'app-navitem',
-  template: `<a (mouseenter)="hover=true" (mouseleave)="hover=false" [ngStyle]="hover ? hoverStyle : style">{{text}} <span *ngIf="selected" class="sr-only">(current)</span></a>`,
-  styles: [`a {
-              float: left;
-              text-align: center;
-              padding: 14px 16px;
-              text-decoration: none;
-              cursor: pointer;
-              color: inherit;
-            }`]
+  template: `
+    <a
+      (mouseenter)="hover = true"
+      (mouseleave)="hover = false"
+      [ngStyle]="hover ? hoverStyle : style"
+      >{{ text }} <span *ngIf="selected" class="sr-only">(current)</span></a
+    >
+  `,
+  styles: [
+    `
+      a {
+        float: left;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        cursor: pointer;
+        color: inherit;
+      }
+    `
+  ]
 })
 export class NavitemComponent implements OnInit, OnDestroy {
   @Input() selected: boolean;
@@ -21,24 +38,24 @@ export class NavitemComponent implements OnInit, OnDestroy {
 
   hover = false;
 
-  style = {
-  };
+  style = {};
 
   hoverStyle = {
-    "background-color": WHITE.toRGBAString(.5),
+    'background-color': WHITE.toRGBAString(0.5),
     ...this.style
   };
 
   private _subscription: Unsubscribable;
 
-  constructor(private colorsService: ColorsService) { }
+  constructor(private colorsService: ColorsService) {}
 
   ngOnInit() {
     this._subscription = this.colorsService.colors$.subscribe(
       (colors: Color[]) => {
-        this.updateStyles(luminanceFrom(meanColor(colors)) < .5);
+        this.updateStyles(luminanceFrom(meanColor(colors)) < 0.5);
       },
-      (error) => console.error('Impossible to subscribe to colors service', error));
+      error => console.error('Impossible to subscribe to colors service', error)
+    );
   }
 
   ngOnDestroy(): void {
@@ -46,7 +63,9 @@ export class NavitemComponent implements OnInit, OnDestroy {
   }
 
   updateStyles(isDark: boolean): void {
-    this.hoverStyle["background-color"] = `${(isDark ? BLACK : WHITE).toRGBAString(.5)}`;
+    this.hoverStyle['background-color'] = `${(isDark
+      ? BLACK
+      : WHITE
+    ).toRGBAString(0.5)}`;
   }
-
 }

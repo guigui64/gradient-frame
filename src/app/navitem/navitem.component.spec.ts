@@ -8,9 +8,8 @@ describe('NavitemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavitemComponent ]
-    })
-    .compileComponents();
+      declarations: [NavitemComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

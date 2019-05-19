@@ -10,15 +10,20 @@ import { ColorsService } from '../colors.service';
 export class MainComponent implements OnInit {
   imageUrl = 'assets/logo.png';
 
-  constructor(private apiService: ApiService, private colorsService: ColorsService) { }
+  constructor(
+    private apiService: ApiService,
+    private colorsService: ColorsService
+  ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   imageUrlEntered(url: string) {
-    if (!url) { return; }
+    if (!url) {
+      return;
+    }
     this.imageUrl = url; // needed to display the image
-    this.apiService.getColors(url).subscribe(colors => this.colorsService.updateColors(colors));
+    this.apiService
+      .getColors(url)
+      .subscribe(colors => this.colorsService.updateColors(colors));
   }
-
 }

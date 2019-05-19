@@ -9,16 +9,13 @@ import { faFill } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./control-panel.component.css']
 })
 export class ControlPanelComponent implements OnInit {
-
   faFill = faFill;
 
-  constructor(private colorsService: ColorsService) { }
+  constructor(private colorsService: ColorsService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   inverse(): void {
     this.colorsService.inverseColors();
   }
-
 }
