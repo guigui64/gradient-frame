@@ -8,14 +8,18 @@ import { ColorsService } from '../colors.service';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  imageUrl = 'assets/logo.png';
+  imageUrl = 'https://picsum.photos/500';
 
   constructor(
     private apiService: ApiService,
     private colorsService: ColorsService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.apiService
+      .getColors(this.imageUrl)
+      .subscribe(colors => this.colorsService.updateColors(colors));
+  }
 
   imageUrlEntered(url: string) {
     if (!url) {
